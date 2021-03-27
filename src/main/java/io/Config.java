@@ -1,14 +1,11 @@
 package io;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
 /**
  * Теперь можно будет добавить новый файл, например, с комментариями и написать с ним тест.
@@ -41,7 +38,7 @@ public class Config {
                     .forEach(s -> {
                         String[] strings = s.split("=");
                         if (strings.length <= 1) {
-                            throw new IllegalArgumentException("Not good");
+                            throw new IllegalArgumentException("There is no data");
                         }
                         values.put(strings[0], strings[1]);
                     });
