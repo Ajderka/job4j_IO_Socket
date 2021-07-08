@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogFilter {
+    private static final int ERROR_CODE = 404;
 
     public static List<String> filter(String file) {
         List<String> list = new ArrayList<>();
@@ -14,7 +15,7 @@ public class LogFilter {
             while ((s = in.readLine()) != null) {
                 String[] split = s.split(" ");
                 int someError = Integer.parseInt(split[split.length - 2]);
-                if (someError == 404) {
+                if (someError == ERROR_CODE) {
                     list.add(s);
                 }
             }
