@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//нужно собрать все то что напарсили в список и передать его в метод для записи
-
 public class Analyze {
 
     private void writingToFile(List<String> list, String target) {
@@ -18,7 +16,7 @@ public class Analyze {
         }
     }
 
-    public void unavailable(String source, String target) {
+    public void unavailable(String target, String source) {
         List<String> list = new ArrayList<>();
         boolean readyToLineSeparator = true;
         try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
