@@ -8,7 +8,7 @@ public class Analyze {
 
     private void writingToFile(List<String> list, String target) {
         try (PrintWriter out = new PrintWriter(new FileOutputStream(target))) {
-            for (int i = 0; i <= list.size(); i += 2) {
+            for (int i = 0; i < list.size() - 1; i += 2) {
                 out.println("beginning at " + list.get(i) + " end at " + list.get(i + 1));
             }
         } catch (Exception e) {
