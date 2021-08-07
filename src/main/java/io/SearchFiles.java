@@ -5,6 +5,7 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -24,6 +25,7 @@ public class SearchFiles implements FileVisitor<Path> {
 
     public SearchFiles(Predicate<Path> pathPredicate) {
         this.pathPredicate = pathPredicate;
+        this.pathList = new ArrayList<>();
     }
 
     @Override

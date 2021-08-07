@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 public class Search {
     public static void main(String[] args) throws IOException {
         Path start = Paths.get(".");
-        List<Path> pathList = search(start, p -> p.toFile().getName().endsWith("js"));
+        List<Path> pathList = search(start, p -> p.toFile().getName().endsWith("java"));
         for (Path p: pathList) {
             System.out.println(p.toAbsolutePath());
         }
