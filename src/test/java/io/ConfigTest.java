@@ -26,7 +26,7 @@ public class ConfigTest {
     }
 
     @Test (expected = IllegalArgumentException.class)
-    public void whenPairNotFullComment() throws IllegalArgumentException{
+    public void whenPairNotFullComment() throws IllegalArgumentException {
         String path = "src/main/java/io/data/pair_notFull.properties";
         Config config = new Config(path);
         config.load();

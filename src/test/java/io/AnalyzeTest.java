@@ -32,7 +32,7 @@ public class AnalyzeTest {
         try (BufferedReader in = new BufferedReader(new FileReader(target))) {
             in.lines().forEach(rsl::append);
         }
-        assertThat(rsl.toString(), is("beginning at 10:57:01 end at 10:59:01" +
-                "beginning at 11:01:02 end at 11:02:02"));
+        assertThat(rsl.toString(), is("beginning at 10:57:01 end at 10:59:01"
+                + "beginning at 11:01:02 end at 11:02:02"));
     }
 }
