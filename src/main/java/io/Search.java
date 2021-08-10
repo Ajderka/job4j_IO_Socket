@@ -9,9 +9,14 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        Path start = Paths.get(".");
-        List<Path> pathList = search(start, p -> p.toFile().getName().endsWith("java"));
-        for (Path p: pathList) {
+        if (args[0] == null) {
+            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+        } else if (args[1] == null) {
+            throw new IllegalArgumentException("There is no file extension.");
+        }
+        Path start = Paths.get(args[0]);
+        List<Path> pathList = search(start, p -> p.toFile().getName().endsWith(args[1]));
+        for (Path p : pathList) {
             System.out.println(p.toAbsolutePath());
         }
     }
@@ -23,3 +28,5 @@ public class Search {
     }
 }
 
+    /*Программа должна запускаться с параметрами. Первый параметр - начальная папка. Второй параметр -
+     расширение файлов, которые нужно искать. Необходимо добавить валидацию данных параметров.*/
