@@ -9,10 +9,10 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        if (args[0] == null) {
+        if (args.length == 0) {
             throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
-        } else if (args[1] == null) {
-            throw new IllegalArgumentException("There is no file extension.");
+        } else if (args.length == 1) {
+            throw new IllegalArgumentException("Incomplete input. Enter the path and extension.");
         }
         Path start = Paths.get(args[0]);
         List<Path> pathList = search(start, p -> p.toFile().getName().endsWith(args[1]));
@@ -27,6 +27,3 @@ public class Search {
         return searcher.getPathList();
     }
 }
-
-    /*Программа должна запускаться с параметрами. Первый параметр - начальная папка. Второй параметр -
-     расширение файлов, которые нужно искать. Необходимо добавить валидацию данных параметров.*/
