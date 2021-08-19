@@ -3,30 +3,36 @@ package io;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+import io.archiving.ArgsName;
 import org.junit.Test;
 
 public class ArgsNameTest {
 
     @Test
-    public void whenGetFirst() {
-        ArgsName jvm = ArgsName.of(new String[]{"-Xmx=512", "-encoding=UTF-8"});
-        assertThat(jvm.get("Xmx"), is("512"));
+    public void whenGetDirectory() {
+        ArgsName jvm = ArgsName.of(new String[]{"-d=c:\\project\\job4j\\","-e=class", "-o=project.zip"});
+        assertThat(jvm.getDirectory(), is("c:\\project\\job4j\\"));
     }
 
     @Test
-    public void whenGetFirstReorder() {
-        ArgsName jvm = ArgsName.of(new String[]{"-encoding=UTF-8", "-Xmx=512"});
-        assertThat(jvm.get("Xmx"), is("512"));
+    public void whenGetClass() {
+        ArgsName jvm = ArgsName.of(new String[]{"-d=c:\\project\\job4j\\","-e=class", "-o=project.zip"});
+        assertThat(jvm.getExclude(), is("class"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void whenGetNotExist() {
-        ArgsName jvm = ArgsName.of(new String[]{});
-        jvm.get("Xmx");
+    @Test
+    public void whenGetOutput() {
+        ArgsName jvm = ArgsName.of(new String[]{"-d=c:\\project\\job4j\\","-e=class", "-o=project.zip"});
+        assertThat(jvm.getOutput(), is("project.zip"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void whenWrongSomeArgument() {
-        ArgsName jvm = ArgsName.of(new String[]{"-enconding=UTF-8", "-Xmx="});
+    @Test (expected = IllegalArgumentException.class)
+    public void whenLineIsNotComplete() {
+        ArgsName jvm = ArgsName.of(new String[]{"-d=c:\\project\\job4j\\","-o=project.zip"});
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void whenLineIsNotCorrect() {
+        ArgsName jvm = ArgsName.of(new String[]{"-d1=c:\\project\\job4j\\","-e=class", "-o=project.zip"});
     }
 }

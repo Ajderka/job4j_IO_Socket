@@ -1,4 +1,4 @@
-package io;
+package io.archiving;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -15,17 +15,13 @@ public class SearchFiles implements FileVisitor<Path> {
     private Predicate<Path> pathPredicate;
     private List<Path> pathList;
 
-    public void setPathPredicate(Predicate<Path> pathPredicate) {
+    public SearchFiles(Predicate<Path> pathPredicate) {
         this.pathPredicate = pathPredicate;
+        this.pathList = new ArrayList<>();
     }
 
     public List<Path> getPathList() {
         return pathList;
-    }
-
-    public SearchFiles(Predicate<Path> pathPredicate) {
-        this.pathPredicate = pathPredicate;
-        this.pathList = new ArrayList<>();
     }
 
     @Override
@@ -35,7 +31,7 @@ public class SearchFiles implements FileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        if (pathPredicate.test(file)) {
+        if (!pathPredicate.test(file)) {
             pathList.add(file);
         }
         return CONTINUE;

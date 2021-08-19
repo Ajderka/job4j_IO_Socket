@@ -1,0 +1,62 @@
+package io.archiving;
+
+import java.io.File;
+import java.util.Objects;
+
+public class ArgsName {
+    private String directory;
+    private String exclude;
+    private String output;
+
+    public String getDirectory() {
+        return directory;
+    }
+
+    public String getExclude() {
+        return exclude;
+    }
+
+    public String getOutput() {
+        return output;
+    }
+
+    private void validateDir(String directory) {
+        if (directory.length() == 0) {
+            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+        }
+        File file = new File(directory);
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
+        }
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
+        }
+    }
+
+    private void parse(String[] args) {
+        if (args.length < 3) {
+            throw new IllegalArgumentException("The command line is not complete");
+        }
+        for (int i = 0; i <= 2; i++) {
+            String delimiter = "=";
+            String[] subStr = args[i].split(delimiter, 2);
+            if (i == 0 && subStr[0].equals("-d") && !subStr[1].isEmpty()) {
+                this.directory = subStr[1];
+            } else if (i == 1 && subStr[0].equals("-e") && !subStr[1].isEmpty()) {
+                this.exclude = subStr[1];
+            } else if (i == 2 && subStr[0].equals("-o") && !subStr[1].isEmpty()) {
+                this.output = subStr[1];
+            } else {
+                throw new IllegalArgumentException("The command line is not correct");
+            }
+        }
+    }
+
+    public static ArgsName of(String[] args) {
+        ArgsName names = new ArgsName();
+        names.parse(args);
+        names.validateDir(names.getDirectory());
+        System.out.println("Validate complete");
+        return names;
+    }
+}
