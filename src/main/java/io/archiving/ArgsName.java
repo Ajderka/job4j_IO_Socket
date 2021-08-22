@@ -1,23 +1,23 @@
 package io.archiving;
 
 import java.io.File;
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ArgsName {
-    private String directory;
-    private String exclude;
-    private String output;
 
-    public String getDirectory() {
-        return directory;
+    private final Map<String, String> stringMap = new HashMap<>();
+
+    public String getDirectory () {
+        return stringMap.get("-d");
     }
 
-    public String getExclude() {
-        return exclude;
+    public String getExclude () {
+        return stringMap.get("-e");
     }
 
-    public String getOutput() {
-        return output;
+    public String getOutput () {
+        return stringMap.get("-o");
     }
 
     private void validateDir(String directory) {
@@ -41,11 +41,11 @@ public class ArgsName {
             String delimiter = "=";
             String[] subStr = args[i].split(delimiter, 2);
             if (i == 0 && subStr[0].equals("-d") && !subStr[1].isEmpty()) {
-                this.directory = subStr[1];
+                stringMap.put(subStr[0], subStr[1]);
             } else if (i == 1 && subStr[0].equals("-e") && !subStr[1].isEmpty()) {
-                this.exclude = subStr[1];
+                stringMap.put(subStr[0], subStr[1]);
             } else if (i == 2 && subStr[0].equals("-o") && !subStr[1].isEmpty()) {
-                this.output = subStr[1];
+                stringMap.put(subStr[0], subStr[1]);
             } else {
                 throw new IllegalArgumentException("The command line is not correct");
             }

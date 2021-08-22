@@ -1,4 +1,4 @@
-package io.archiving;
+package io;
 
 import java.io.File;
 import java.util.Objects;

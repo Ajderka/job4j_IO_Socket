@@ -8,7 +8,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class Zip {
-    private ArgsName argsName;
+    private final ArgsName argsName;
     private List<Path> pathList;
 
     public Zip(String[] args) {
@@ -38,7 +38,7 @@ public class Zip {
 
     public static void main(String[] args) throws IOException {
         Zip zipClass = new Zip(args);
-        zipClass.setPathList(Search.search(Paths.get(zipClass.argsName.getDirectory()), p -> p.equals(zipClass.argsName.getExclude())));
+        zipClass.setPathList(Search.search(Paths.get(zipClass.argsName.getDirectory()), p -> !p.equals(zipClass.argsName.getExclude())));
         packFiles(zipClass.getPathList(), new File(zipClass.argsName.getOutput()));
     }
 }
