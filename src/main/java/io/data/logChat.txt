@@ -1,0 +1,20 @@
+привет
+hi man
+как ты 
+i mean, man?
+что
+you know what i mean
+стоп
+You are stopping program
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=33][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q?\E]
+Напишите -продолжить- для продолжения чата
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=41][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q?\E]
+Напишите -продолжить- для продолжения чата
+you know what i mean
+ну да
+hi man
+блин
+hi man
+да ну тебя
+i mean, man?
+закончить
