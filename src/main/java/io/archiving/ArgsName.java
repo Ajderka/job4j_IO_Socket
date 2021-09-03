@@ -8,15 +8,15 @@ public class ArgsName {
 
     private final Map<String, String> stringMap = new HashMap<>();
 
-    public String getDirectory () {
+    public String getDirectory() {
         return stringMap.get("-d");
     }
 
-    public String getExclude () {
+    public String getExclude() {
         return stringMap.get("-e");
     }
 
-    public String getOutput () {
+    public String getOutput() {
         return stringMap.get("-o");
     }
 

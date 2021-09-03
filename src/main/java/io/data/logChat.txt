@@ -18,3 +18,21 @@ hi man
 да ну тебя
 i mean, man?
 закончить
+dfz
+wats up man
+fdgdfg
+hi man
+dfg
+i mean, man?
+dfgdfk
+wats up man
+стоп
+You are stopping program
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=30][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q?\E]
+Напишите -продолжить- для продолжения чата
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=35][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q?\E]
+Напишите -продолжить- для продолжения чата
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=45][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q?\E]
+Напишите -продолжить- для продолжения чата
+you know what i mean
+закончить

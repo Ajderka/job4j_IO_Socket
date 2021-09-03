@@ -2,6 +2,7 @@ package io;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,8 +14,7 @@ public class ConsoleChat {
     private static final String OUT = "закончить";
     private static final String STOP = "стоп";
     private static final String CONTINUE = "продолжить";
-    private List<String> listLogChat;
-
+    private final List<String> listLogChat;
     private boolean flag = true;
 
     public ConsoleChat(String path, String botAnswers) {
@@ -31,12 +31,14 @@ public class ConsoleChat {
             String inner = in.nextLine();
             listLogChat.add(inner);
             if (inner.equals(STOP)) {
+                this.saveLog(listLogChat);
                 System.out.println("You are stopping program");
                 listLogChat.add("You are stopping program");
                 while (!in.nextLine().equals(CONTINUE)) {
+                    this.saveLog(listLogChat);
                     listLogChat.add(String.valueOf(in));
                     System.out.println("Напишите -продолжить- для продолжения чата");
-                    listLogChat.add("Напишите -продолжить- для продолжения чата");
+                listLogChat.add("Напишите -продолжить- для продолжения чата");
                 }
                 outPrintRobo = listBotPhrases.get((int) (Math.random() * (4 + 1)));
                 listLogChat.add(outPrintRobo);
@@ -56,7 +58,7 @@ public class ConsoleChat {
 
     private List<String> readPhrases() {
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathBotAnswers, Charset.forName("WINDOWS-1251")))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathBotAnswers, StandardCharsets.UTF_8))) {
             br.lines().forEach(line -> stringList.add(line));
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,7 +67,7 @@ public class ConsoleChat {
     }
 
     private void saveLog(List<String> log) {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(pathWhenWeWriteChatLog, Charset.forName("WINDOWS-1251"), true))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(pathWhenWeWriteChatLog, StandardCharsets.UTF_8))) {
             log.forEach(element -> pw.println(element));
         } catch (IOException e) {
             e.printStackTrace();
@@ -73,7 +75,7 @@ public class ConsoleChat {
     }
 
     public static void main(String[] args) {
-        ConsoleChat cc = new ConsoleChat("./src/main/java/io/data/logChat.txt", "./src/main/java/io/data/text.txt");
+        ConsoleChat cc = new ConsoleChat("./src/main/java/io/data/logChat2.txt", "./src/main/java/io/data/text.txt");
         cc.run();
     }
 }

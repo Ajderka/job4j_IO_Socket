@@ -1,0 +1,26 @@
+ghgh
+wats up man
+араом
+wats up man
+привет
+i mean, man?
+пр
+wats up man
+прп
+you know what i mean
+рп
+i mean, man?
+рп
+you know what i mean
+рп
+shit, man
+рп
+wats up man
+рп
+привет чувак
+стоп
+You are stopping program
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=50][match valid=true][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q∞\E]
+Напишите -продолжить- для продолжения чата
+привет чувак
+закончить
