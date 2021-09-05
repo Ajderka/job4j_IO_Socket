@@ -8,11 +8,11 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class Zip {
-    private final ArgsName argsName;
+    private final ArgsScanner argsName;
     private List<Path> pathList;
 
     public Zip(String[] args) {
-        this.argsName = ArgsName.of(args);
+        this.argsName = ArgsScanner.of(args);
     }
 
     public void setPathList(List<Path> pathList) {

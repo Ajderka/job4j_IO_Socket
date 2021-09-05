@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArgsName {
+public class ArgsScanner {
 
     private final Map<String, String> stringMap = new HashMap<>();
 
@@ -52,8 +52,8 @@ public class ArgsName {
         }
     }
 
-    public static ArgsName of(String[] args) {
-        ArgsName names = new ArgsName();
+    public static ArgsScanner of(String[] args) {
+        ArgsScanner names = new ArgsScanner();
         names.parse(args);
         names.validateDir(names.getDirectory());
         System.out.println("Validate complete");
