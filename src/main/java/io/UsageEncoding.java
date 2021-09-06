@@ -1,7 +1,6 @@
 package io;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class UsageEncoding {
 
     public void writeDataInFile(String path, List<String> data) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(path, StandardCharsets.UTF_8, true))) {
-           data.forEach(element -> pw.println(element));
+           data.forEach(pw::println);
         } catch (IOException e) {
             e.printStackTrace();
         }

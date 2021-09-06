@@ -1,7 +1,6 @@
 package io;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +58,7 @@ public class ConsoleChat {
     private List<String> readPhrases() {
         List<String> stringList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(pathBotAnswers, StandardCharsets.UTF_8))) {
-            br.lines().forEach(line -> stringList.add(line));
+            br.lines().forEach(stringList::add);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,7 +67,7 @@ public class ConsoleChat {
 
     private void saveLog(List<String> log) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(pathWhenWeWriteChatLog, StandardCharsets.UTF_8))) {
-            log.forEach(element -> pw.println(element));
+            log.forEach(pw::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
