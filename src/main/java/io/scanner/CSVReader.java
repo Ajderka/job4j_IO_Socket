@@ -4,16 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CSVReader {
-
+    private Map<Integer, String> infoMap = new HashMap<>();
+    private int indexCount = 0;
     private ArgsScanner argsScanner;
     private final String[] args;
     private List<String> column = new ArrayList<>();
-    private final List<String> filter = new ArrayList<>();
+    private final List<Integer> indexList = new ArrayList<>();
 
     public void setArgsScanner(ArgsScanner argsScanner) {
         this.argsScanner = argsScanner;
@@ -34,24 +33,35 @@ public class CSVReader {
     }
 
     private void callRecourses() {
-        try (Scanner scanner = new Scanner(new File("C:\\Project\\job4j_IO_Socket\\src\\main\\java\\io\\scanner\\file.txt")).useDelimiter(argsScanner.getDelimiter())) {
+        try (Scanner scanner = new Scanner(new File(argsScanner.getPathToRecourseFile())).useDelimiter(argsScanner.getDelimiter())) {
             while (scanner.hasNext()) {
-                column.add(scanner.next());
+                infoMap.put(indexCount++, scanner.next());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println(infoMap);
     }
 
     private void filterColumn() {
         try (Scanner scanner = new Scanner(argsScanner.getFilter()).useDelimiter(argsScanner.getDelimiter())) {
-            while (scanner.hasNext()) {
-                filter.add(scanner.next());
+            for (Map.Entry<Integer, String> entry : infoMap.entrySet()) {
+                if (!scanner.hasNext()) {
+                    break;
+                } else if (entry.getValue().equals(scanner.next())) {
+                    indexList.add(entry.getKey());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        column.retainAll(filter);
+        System.out.println(indexList);
+        for (int i = 0; i < indexCount; i += 5) {
+            for (Integer integer : indexList) {
+                column.add(infoMap.get(i + integer));
+            }
+        }
+        System.out.println(column);
     }
 
     private void callOutFunction() {
@@ -69,8 +79,8 @@ public class CSVReader {
     }
 
     public static void main(String[] args) {
-        CSVReader csvReader = new CSVReader(new String[]{"-path=C:\\Project\\job4j_IO_Socket\\src\\main\\java\\io\\scanner\\file.txt",
-                "-delimiter=; ", "-out=C:\\Project\\job4j_IO_Socket\\src\\main\\java\\io\\scanner\\output.txt", "-filter=name, age"});
+        CSVReader csvReader = new CSVReader(new String[]{"-path=C:\\Project\\job4j_IO_Socket\\src\\main\\java\\io\\scanner\\recourses.csv",
+                "-delimiter=;", "-out=C:\\Project\\job4j_IO_Socket\\src\\main\\java\\io\\scanner\\output.txt", "-filter=name;age;education"});
         csvReader.setArgsScanner(ArgsScanner.of(csvReader.getArgs()));
         csvReader.runLogic();
     }

@@ -1,2 +1,6 @@
 name
 age
+Zoryana
+4
+Ivan
+23

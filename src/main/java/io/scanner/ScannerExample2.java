@@ -10,6 +10,7 @@ public class ScannerExample2 {
         var scan = new Scanner(new ByteArrayInputStream(data.getBytes(StandardCharsets.UTF_8))).useDelimiter(", ");
         while (scan.hasNext()) {
             System.out.println(scan.next());
+            System.out.println("-----");
         }
     }
 }
