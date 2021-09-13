@@ -1,5 +1,5 @@
-привет чувак
-wats up man
-you know what i mean
-shit, man
-i mean, man?
+Bot: Hi man!
+Bot: Wats up man?
+Bot: You know what I mean!
+Bot: Shit, man!
+Bot: I mean, man?

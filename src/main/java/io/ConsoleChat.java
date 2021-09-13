@@ -33,13 +33,16 @@ public class ConsoleChat {
                 this.saveLog(listLogChat);
                 System.out.println("You are stopping program");
                 listLogChat.add("You are stopping program");
-                while (!in.nextLine().equals(CONTINUE)) {
+                inner = in.nextLine();
+                while (!inner.equals(CONTINUE)) {
                     this.saveLog(listLogChat);
-                    listLogChat.add(String.valueOf(in));
+                    listLogChat.add(inner);
                     System.out.println("Напишите -продолжить- для продолжения чата");
-                listLogChat.add("Напишите -продолжить- для продолжения чата");
+                    listLogChat.add("Напишите -продолжить- для продолжения чата");
+                    inner = in.nextLine();
                 }
-                outPrintRobo = listBotPhrases.get((int) (Math.random() * (4 + 1)));
+                listLogChat.add(inner);
+                outPrintRobo = listBotPhrases.get((int) (Math.random() * listBotPhrases.size()));
                 listLogChat.add(outPrintRobo);
                 System.out.println(outPrintRobo);
                 continue;
@@ -47,7 +50,7 @@ public class ConsoleChat {
                 flag = false;
                 break;
             }
-            outPrintRobo = listBotPhrases.get((int) (Math.random() * (4 + 1)));
+            outPrintRobo = listBotPhrases.get((int) (Math.random() * listBotPhrases.size()));
             listLogChat.add(outPrintRobo);
             System.out.println(outPrintRobo);
         }
