@@ -1,6 +1,9 @@
 name
 age
+education
 Zoryana
 4
+beginner
 Ivan
 23
+bachelor

@@ -45,11 +45,13 @@ public class CSVReader {
 
     private void filterColumn() {
         try (Scanner scanner = new Scanner(argsScanner.getFilter()).useDelimiter(argsScanner.getDelimiter())) {
-            for (Map.Entry<Integer, String> entry : infoMap.entrySet()) {
-                if (!scanner.hasNext()) {
-                    break;
-                } else if (entry.getValue().equals(scanner.next())) {
-                    indexList.add(entry.getKey());
+            while (scanner.hasNext()) {
+                String inner = scanner.next();
+                for (Map.Entry<Integer, String> entry : infoMap.entrySet()) {
+                    if (entry.getValue().equals(inner)) {
+                        indexList.add(entry.getKey());
+                        break;
+                    }
                 }
             }
         } catch (Exception e) {
