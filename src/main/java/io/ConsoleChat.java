@@ -30,12 +30,10 @@ public class ConsoleChat {
             String inner = in.nextLine();
             listLogChat.add(inner);
             if (inner.equals(STOP)) {
-                this.saveLog(listLogChat);
                 System.out.println("You are stopping program");
                 listLogChat.add("You are stopping program");
                 inner = in.nextLine();
                 while (!inner.equals(CONTINUE)) {
-                    this.saveLog(listLogChat);
                     listLogChat.add(inner);
                     System.out.println("Напишите -продолжить- для продолжения чата");
                     listLogChat.add("Напишите -продолжить- для продолжения чата");

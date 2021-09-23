@@ -2,8 +2,7 @@ package io;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
@@ -32,7 +31,7 @@ public class AnalyzeTest {
         try (BufferedReader in = new BufferedReader(new FileReader(target))) {
             in.lines().forEach(rsl::append);
         }
-        assertThat(rsl.toString(), is("beginning at 10:57:01 end at 10:59:01"
+        assertEquals(rsl.toString(), ("beginning at 10:57:01 end at 10:59:01"
                 + "beginning at 11:01:02 end at 11:02:02"));
     }
 }

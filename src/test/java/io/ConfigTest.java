@@ -2,8 +2,7 @@ package io;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class ConfigTest {
 
@@ -12,8 +11,8 @@ public class ConfigTest {
         String path = "src/main/java/io/data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.getValues("Ajderka"), is("student"));
-        assertThat(config.getValues("Ivanna"), is("123"));
+        assertEquals(config.getValues("Ajderka"), ("student"));
+        assertEquals(config.getValues("Ivanna"), ("123"));
     }
 
     @Test
@@ -21,8 +20,8 @@ public class ConfigTest {
         String path = "src/main/java/io/data/pair_with_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.getValues("Ajderka"), is("34"));
-        assertThat(config.getValues("Ivanna"), is("35"));
+        assertEquals(config.getValues("Ajderka"), ("34"));
+        assertEquals(config.getValues("Ivanna"), ("35"));
     }
 
     @Test(expected = IllegalArgumentException.class)
