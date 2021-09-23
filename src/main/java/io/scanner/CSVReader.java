@@ -12,7 +12,6 @@ public class CSVReader {
     private final List<String> filter;
     private final StringBuilder stringBuilder = new StringBuilder();
 
-
     public CSVReader(ArgsScanner argsScanner) {
         this.pathIn = argsScanner.getPathToRecourseFile();
         this.delimiter = argsScanner.getDelimiter();
