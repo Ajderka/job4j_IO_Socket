@@ -14,7 +14,7 @@ public class ScannerExample1 {
         var scanner = new Scanner(new CharArrayReader(data.toCharArray()));
         while (scanner.hasNextInt()) {
             System.out.print(scanner.nextLine());
-            System.out.print(" - ");
+            System.out.print(" ");
         }
     }
 }

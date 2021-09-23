@@ -24,6 +24,14 @@ public class ArgsScanner {
         return stringMap.get("-filter");
     }
 
+    public static ArgsScanner of(String[] args) {
+        ArgsScanner parseStringInfo = new ArgsScanner();
+        parseStringInfo.parse(args);
+        parseStringInfo.validateDir(parseStringInfo.getPathToRecourseFile());
+        System.out.println("Validate complete");
+        return parseStringInfo;
+    }
+
     private void validateDir(String directory) {
         if (directory.length() == 0) {
             throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
@@ -53,13 +61,5 @@ public class ArgsScanner {
                 throw new IllegalArgumentException("The command line is not correct");
             }
         }
-    }
-
-    public static ArgsScanner of(String[] args) {
-        ArgsScanner parseStringInfo = new ArgsScanner();
-        parseStringInfo.parse(args);
-        parseStringInfo.validateDir(parseStringInfo.getPathToRecourseFile());
-        System.out.println("Validate complete");
-        return parseStringInfo;
     }
 }
