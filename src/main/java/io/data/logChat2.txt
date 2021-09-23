@@ -1,0 +1,17 @@
+привет
+Bot: I mean, man?
+что
+Bot: Wats up man
+все ок
+Bot: You know what I mean
+стоп
+You are stopping program
+хорошщо
+Напишите -продолжить- для продолжения чата
+блин
+Напишите -продолжить- для продолжения чата
+продолжить
+Bot: You know what I mean
+нет
+Bot: Wats up man
+закончить

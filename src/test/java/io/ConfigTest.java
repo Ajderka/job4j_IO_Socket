@@ -25,7 +25,7 @@ public class ConfigTest {
         assertThat(config.getValues("Ivanna"), is("35"));
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void whenPairNotFullComment() throws IllegalArgumentException {
         String path = "src/main/java/io/data/pair_notFull.properties";
         Config config = new Config(path);
