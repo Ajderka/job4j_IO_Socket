@@ -41,6 +41,7 @@ public class CSVReader {
 
     private void callRecourses() {
         try (Scanner scanner = new Scanner(new File(pathIn))) {
+            scanner.nextLine();
             while (scanner.hasNextLine()) {
                 String[] strings = scanner.nextLine().split(delimiter);
                 for (Integer i : column) {
@@ -62,9 +63,12 @@ public class CSVReader {
                 for (int i = 0; i < strings.length; i++) {
                     if (filter.contains(strings[i])) {
                         column.add(i);
+                        stringBuilder.append(strings[i]).append(";");
                     }
                 }
             }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append(System.lineSeparator());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
