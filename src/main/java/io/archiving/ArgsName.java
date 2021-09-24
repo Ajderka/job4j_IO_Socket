@@ -1,6 +1,5 @@
 package io.archiving;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,19 +17,6 @@ public class ArgsName {
 
     public String getOutput() {
         return stringMap.get("-o");
-    }
-
-    private void validateDir(String directory) {
-        if (directory.length() == 0) {
-            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
-        }
-        File file = new File(directory);
-        if (!file.exists()) {
-            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
-        }
-        if (!file.isDirectory()) {
-            throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
-        }
     }
 
     private void parse(String[] args) {
@@ -55,8 +41,6 @@ public class ArgsName {
     public static ArgsName of(String[] args) {
         ArgsName names = new ArgsName();
         names.parse(args);
-        names.validateDir(names.getDirectory());
-        System.out.println("Validate complete");
         return names;
     }
 }

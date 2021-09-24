@@ -13,6 +13,7 @@ public class Zip {
 
     public Zip(String[] args) {
         this.argsName = ArgsName.of(args);
+        this.validateDir(argsName.getDirectory());
     }
 
     public void setPathList(List<Path> pathList) {
@@ -21,6 +22,20 @@ public class Zip {
 
     public List<Path> getPathList() {
         return pathList;
+    }
+
+    private void validateDir(String directory) {
+        if (directory.length() == 0) {
+            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+        }
+        File file = new File(directory);
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
+        }
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
+        }
+        System.out.println("Validate complete");
     }
 
     public static void packFiles(List<Path> sources, File target) {

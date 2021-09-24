@@ -13,10 +13,12 @@ public class CSVReader {
     private final StringBuilder stringBuilder = new StringBuilder();
 
     public CSVReader(ArgsScanner argsScanner) {
+        this.validateDir(argsScanner.getPathToRecourseFile());
         this.pathIn = argsScanner.getPathToRecourseFile();
         this.delimiter = argsScanner.getDelimiter();
         this.filter = List.of(argsScanner.getFilter().split(delimiter));
         this.pathOut = argsScanner.getOutput();
+
     }
 
     public static void handle(ArgsScanner argsScanner) {
@@ -24,6 +26,17 @@ public class CSVReader {
         csvReader.filterColumn();
         csvReader.callRecourses();
         csvReader.callOutFunction();
+    }
+
+    private void validateDir(String directory) {
+        if (directory.length() == 0) {
+            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+        }
+        File file = new File(directory);
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
+        }
+        System.out.println("Validate complete");
     }
 
     private void callRecourses() {

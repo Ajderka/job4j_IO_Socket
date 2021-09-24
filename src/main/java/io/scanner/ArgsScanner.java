@@ -1,6 +1,5 @@
 package io.scanner;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,19 +26,7 @@ public class ArgsScanner {
     public static ArgsScanner of(String[] args) {
         ArgsScanner parseStringInfo = new ArgsScanner();
         parseStringInfo.parse(args);
-        parseStringInfo.validateDir(parseStringInfo.getPathToRecourseFile());
-        System.out.println("Validate complete");
         return parseStringInfo;
-    }
-
-    private void validateDir(String directory) {
-        if (directory.length() == 0) {
-            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
-        }
-        File file = new File(directory);
-        if (!file.exists()) {
-            throw new IllegalArgumentException(String.format("Not exist %s", file.getAbsoluteFile()));
-        }
     }
 
     private void parse(String[] args) {
