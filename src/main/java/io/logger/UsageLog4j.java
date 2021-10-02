@@ -9,10 +9,15 @@ public class UsageLog4j {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        LOG.trace("trace message");
-        LOG.debug("debug message");
-        LOG.info("info message");
-        LOG.warn("warn message");
-        LOG.error("error message");
+        String name = "Hayredinov Ayder";
+        int age = 34;
+        byte bloodType = 1;
+        long salary = 23888499L;
+        char shift = 'A';
+        float weight = 84.3F;
+        double growth = 180.5;
+        boolean man = true;
+
+        LOG.debug("User info name : {}, age : {}, bloodType : {}, salary : {}, shift : {}, weight : {}, growth = {}, man = {}", name, age, bloodType, salary, shift, weight, growth, man);
     }
 }
