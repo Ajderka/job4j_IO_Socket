@@ -9,7 +9,7 @@ public class UsageLog4j {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        String name = "Hayredinov Ayder";
+        short nameLength = 5;
         int age = 34;
         byte bloodType = 1;
         long salary = 23888499L;
@@ -18,6 +18,6 @@ public class UsageLog4j {
         double growth = 180.5;
         boolean man = true;
 
-        LOG.debug("User info name : {}, age : {}, bloodType : {}, salary : {}, shift : {}, weight : {}, growth = {}, man = {}", name, age, bloodType, salary, shift, weight, growth, man);
+        LOG.debug("User info name length : {}, age : {}, bloodType : {}, salary : {}, shift : {}, weight : {}, growth = {}, man = {}", nameLength, age, bloodType, salary, shift, weight, growth, man);
     }
 }
