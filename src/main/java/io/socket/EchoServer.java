@@ -37,7 +37,7 @@ public class EchoServer {
                 }
             }
         } catch (IOException e) {
-            LOG.error("I/O error occurs when opening the socket");
+            LOG.error("I/O error occurs when opening the socket", e);
         }
     }
 }
