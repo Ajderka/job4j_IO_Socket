@@ -33,7 +33,6 @@ public class EchoServer {
                         }
                     }
                     out.flush();
-                    server.close();
                 }
             }
         } catch (IOException e) {
