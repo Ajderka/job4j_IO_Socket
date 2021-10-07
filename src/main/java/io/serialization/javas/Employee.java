@@ -1,4 +1,4 @@
-package io.serialization.javaScriptObjectNotation;
+package io.serialization.javas;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
