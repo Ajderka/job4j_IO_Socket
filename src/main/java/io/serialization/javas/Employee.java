@@ -6,11 +6,11 @@ import com.google.gson.GsonBuilder;
 import java.util.Arrays;
 
 public class Employee {
-    private String name;
-    private Boolean married;
-    private int salary;
-    private String[] skills;
-    private Department department;
+    private final String name;
+    private final Boolean married;
+    private final int salary;
+    private final String[] skills;
+    private final Department department;
 
     public Employee(String name, Boolean married, int salary, String[] skills, Department department) {
         this.name = name;
@@ -59,8 +59,8 @@ public class Employee {
 }
 
 class Department {
-    private String title;
-    private int numberOfEmployees;
+    private final String title;
+    private final int numberOfEmployees;
 
     public Department(String title, int numberOfEmployees) {
         this.title = title;

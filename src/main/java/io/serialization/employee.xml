@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<employee name="Ivan" married="true" salary="3600">
+    <skillses>
+        <status>Communication</status>
+        <status>Teamwork</status>
+        <status>Problem-solving</status>
+        <status>Stress management</status>
+    </skillses>
+    <department title="IT" numberOfEmployees="56"/>
+</employee>
